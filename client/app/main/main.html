@@ -1,0 +1,31 @@
+<navbar></navbar>
+
+<section class="hero" style="background-image: url('../../assets/images/microphone.jpeg');">
+    <h1>'Allo, 'Allo!</h1>
+    <p>eventoL helps you organize and find your events</p>
+</section>
+
+<section id="event-grid">
+    <div class="row events">
+        <div class="col-md-4 col-sm-6 col-xs-12" style="margin:0; padding:0;" ng-repeat="event in main.events">
+            <div class="event">
+                <figure class="effect-julia">
+                    <img src="{{ event.home_image }}" alt="">
+                    <figcaption>
+                        <div class="heading">
+                            <h3> {{ event.name }}</h3>
+                            <p>
+                                {{ event.short_description }}
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="material-icons">add_circle_outline</i>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer></footer>

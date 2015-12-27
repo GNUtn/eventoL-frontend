@@ -1,0 +1,27 @@
+{
+  "name": "eventoL-frontend",
+  "version": "0.0.0",
+  "dependencies": {
+    "arrive": "~2.3.0",
+    "angular": "~1.4.0",
+    "json3": "~3.3.1",
+    "es5-shim": "~4.4.1",
+    "bootstrap-sass-official": "~3.3.6",
+    "bootstrap": "~3.3.6",
+    "angular-resource": "~1.4.0",
+    "angular-cookies": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "font-awesome": ">=4.1.0",
+    "lodash": "~3.10.1",
+    "angular-validation-match": "~1.7.1",
+    "bootstrap-material-design": "~0.5.6",
+    "font-source-sans-pro": "~0.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
+  },
+  "resolutions": {
+    "bootstrap": "~3.3.6"
+  }
+}

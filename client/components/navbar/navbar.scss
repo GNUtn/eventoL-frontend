@@ -1,0 +1,24 @@
+.navbar, .navbar.navbar-default.large {
+    background-color: transparent !important;
+    padding: 50px 90px 50px 90px;
+    color: #212121;
+    font-size: 1.7rem;
+}
+
+.navbar, .navbar.navbar-default.small {
+    background-color: $brand-primary !important;
+    padding: 0px 90px;
+    color: $light-primary-color;
+}
+
+.navbar.navbar-default.small img {
+    width: 60px;
+    margin-top: -10px;
+}
+
+nav, a, img, li {
+    transition: all 1s;
+    -moz-transition: all 1s; /* Firefox 4 */
+    -webkit-transition: all 1s; /* Safari and Chrome */
+    -o-transition: all 1s; /* Opera */
+}

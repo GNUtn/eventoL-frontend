@@ -1,0 +1,35 @@
+.login-panel {
+    z-index: 20;
+    padding: 20px;
+    @media screen and (min-width: 767px) {
+        margin-top: -200px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+.social-login-btn {
+    padding: 13px !important;
+}
+
+.facebook {
+    color: #3b5998 !important;
+}
+
+.twitter {
+    color: #55ACEE !important;
+}
+
+.github {
+    color: #333333 !important;
+}
+
+.google {
+    color: #dd4b39 !important;
+}
+
+.linkedin {
+    color: #4875B4 !important;
+}
