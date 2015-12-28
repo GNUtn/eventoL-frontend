@@ -9,22 +9,24 @@ class NavbarController {
         this.isLoggedIn     = Auth.isLoggedIn;
         this.isAdmin        = Auth.isAdmin;
         this.getCurrentUser = Auth.getCurrentUser;
-        this.navbarClass    = 'large';
+        this.navbarClass    = $scope.fixed ? 'small' : 'large';
 
         this.menu = [{
             'title': 'Home',
             'link' : '/'
         }];
 
-        angular.element($window).bind("scroll", function() {
-            if(this.pageYOffset > 100) {
-                self.navbarClass = 'small';
-            } else {
-                self.navbarClass = 'large';
-            }
-            $scope.visible = false;
-            $scope.$apply();
-        });
+        if(!$scope.fixed) {
+            angular.element($window).bind("scroll", function() {
+                if(this.pageYOffset > 100) {
+                    self.navbarClass = 'small';
+                } else {
+                    self.navbarClass = 'large';
+                }
+                $scope.visible = false;
+                $scope.$apply();
+            });
+        }
     }
 
     isActive(route) {
