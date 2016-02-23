@@ -16,7 +16,11 @@ angular.module('eventoLFrontendApp', [
         'ngResource',
         'ngSanitize',
         'ngRoute',
-        'validation.match'
+        'validation.match',
+        'mgo-angular-wizard',
+        'angular-img-cropper',
+        'multipleDatePicker',
+        'ngMap'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

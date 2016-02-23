@@ -3,15 +3,22 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 $fa-font-path: "../bower_components/font-awesome/fonts";
 @import '../bower_components/font-awesome/scss/font-awesome';
 
+$dark-primary-color: #F57C00;
+$primary-color: #FF9800;
 $light-primary-color: #FFE0B2;
+$text-icons-color: #212121;
 $accent-color: #7C4DFF;
+$primary-text-color: #212121;
+$secondary-text-color: #727272;
+$divider-color: #B6B6B6;
 $body-background-color: #FAFAFA; /* YEAH! */
 
-$brand-primary: #ff9800;
+/* Override of bootstrap colors */
+$brand-primary: $primary-color;
 $brand-success: $accent-color;
-$brand-danger: #f57c00;
+$brand-danger: $dark-primary-color;
 $brand-warning: $light-primary-color;
-$brand-info: #727272;
+$brand-info: $secondary-text-color;
 
 $material-font-path: '../bower_components/bootstrap-material-design/';
 @import '../bower_components/bootstrap-material-design/sass/bootstrap-material-design';
@@ -97,10 +104,19 @@ h5, h6 {
     }
 }
 
+.form-group label.control-label {
+    font-size: 16px;
+    color: $secondary-text-color;
+    font-weight: 500;
+    margin: 16px 0 0 0;
+}
+
 // component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
+@import 'event/create/create.scss';
 @import 'main/main.scss';
 @import '../components/footer/footer.scss';
 @import '../components/navbar/navbar.scss';
 // endinjector
+

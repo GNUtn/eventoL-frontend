@@ -3,12 +3,13 @@
 <section class="hero" style="background-image: url('../../assets/images/microphone.jpeg');">
     <h1>'Allo, 'Allo!</h1>
     <p>eventoL helps you organize and find your events</p>
+    <a href="/create" class="btn btn-raised btn-primary btn-lg">LET'S CREATE YOUR EVENT</a>
 </section>
 
 <section id="event-grid">
-    <div class="row events">
+    <div class="row events-main">
         <div class="col-md-4 col-sm-6 col-xs-12" style="margin:0; padding:0;" ng-repeat="event in main.events">
-            <div class="event">
+            <div class="event-main">
                 <figure class="effect-julia">
                     <img src="{{ event.home_image }}" alt="">
                     <figcaption>
