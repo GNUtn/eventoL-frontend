@@ -4,7 +4,7 @@
     <div class="panel panel-default" style="width:90%; margin:auto;">
         <div class="panel-body" style="margin: 30px; text-align: center">
             <wizard on-finish="createEvent.finishedWizard()">
-                <wz-step title="Basic Data">
+                <wz-step wz-title="Basic Data">
                     <div class="step-body row">
 
                         <h3>Let's provide some basic data about {{createEvent.event.title ? createEvent.event.title:
@@ -39,7 +39,7 @@
                         </form>
                     </div>
                 </wz-step>
-                <wz-step title="Image">
+                <wz-step wz-title="Image">
                     <div class="step-body row">
 
                         <h3>Choose an image that represents {{createEvent.event.title}}</h3>
@@ -50,15 +50,23 @@
                             wisely!</p>
 
                         <div class="row">
-                            <div class="col-md-7">
+                            <div class="col-md-6">
                                 <form class="form-horizontal">
                                     <div class="row">
                                         <div class="col-md-4 col-md-offset-4">
+
                                             <div class="form-group">
-                                                <input type="text" readonly="" class="form-control"
-                                                       placeholder="Select File...">
-                                                <input type="file" id="inputFile" multiple="" img-cropper-fileread
+                                                <input id="inputFile" multiple="" type="file" img-cropper-fileread
                                                        image="createEvent.sourceImage">
+                                                <div class="input-group">
+                                                    <input readonly="" class="form-control"
+                                                           placeholder="Select File..." type="text">
+                                                      <span class="input-group-btn input-group-sm">
+                                                        <button type="button" class="btn btn-fab btn-fab-mini">
+                                                            <i class="material-icons">attach_file</i>
+                                                        </button>
+                                                      </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +80,7 @@
                                             keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
                                 </div>
                             </div>
-                            <div class="col-md-5" style="padding-top: 80px;">
+                            <div class="col-md-6" style="padding-top: 80px;">
                                 <div>What you'll see</div>
                                 <div ng-show="createEvent.event.home_image!=null"><img
                                     ng-src="{{createEvent.event.home_image}}"/>
@@ -86,7 +94,7 @@
                         </div>
                     </div>
                 </wz-step>
-                <wz-step title="When">
+                <wz-step wz-title="When">
                     <div class="step-body row">
                         <h3>When will {{createEvent.event.title}} be?</h3>
 
@@ -108,7 +116,7 @@
                         </div>
                     </div>
                 </wz-step>
-                <wz-step title="Where">
+                <wz-step wz-title="Where">
                     <div class="step-body row">
                         <h3>Where will {{createEvent.event.title}} be?</h3>
 
@@ -133,7 +141,7 @@
                         </div>
                     </div>
                 </wz-step>
-                <wz-step title="What">
+                <wz-step wz-title="What">
                     <div class="step-body row">
                         <h3>Select {{createEvent.event.title}}'s activities that you are going to manage with
                             eventoL</h3>
@@ -199,7 +207,7 @@
                         </div>
                     </div>
                 </wz-step>
-                <wz-step title="Contact">
+                <wz-step wz-title="Contact">
                     <div class="step-body row">
                         <h3>Where else people can reach {{createEvent.event.title}}?</h3>
 
