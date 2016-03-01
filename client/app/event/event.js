@@ -8,4 +8,9 @@ angular.module('eventoLFrontendApp')
                 controller  : 'CreateEventCtrl',
                 controllerAs: 'createEvent'
             })
+            .when('/event/:eventId', {
+                templateUrl : 'app/event/home/home.html',
+                controller  : 'HomeCtrl',
+                controllerAs: 'home'
+            })
     });

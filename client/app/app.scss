@@ -111,10 +111,16 @@ h5, h6 {
     margin: 16px 0 0 0;
 }
 
+hr {
+    border-top: 1px solid $divider-color;
+}
+
 // component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
 @import 'event/create/create.scss';
+@import 'event/eventNavbar/eventNavbar.scss';
+@import 'event/home/home.scss';
 @import 'main/main.scss';
 @import '../components/footer/footer.scss';
 @import '../components/navbar/navbar.scss';

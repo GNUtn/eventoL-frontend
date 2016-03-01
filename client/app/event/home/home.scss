@@ -1,0 +1,61 @@
+.event-hero {
+    background-size: cover !important;
+    z-index: 2;
+    margin: 0;
+    width: 100%;
+    height: 49vw;
+    max-height: 640px;
+}
+
+.event-hero-title {
+    color: #FFE0B2;
+    font-size: 45px;
+    margin-top: 200px;
+    font-weight: 700;
+    @media screen and (max-width: 767px) {
+        font-size: 30px;
+        margin-top: 70px;
+        font-weight: 600;
+    }
+}
+
+.event-hero-date, .event-hero-place {
+    color: #FFE0B2;
+    @media screen and (max-width: 767px) {
+        font-size: 18px;
+    }
+}
+
+.event-description {
+    margin-top: -90px;
+    @media screen and (max-width: 767px) {
+        margin-top: -20px;
+    }
+}
+
+.event-location {
+}
+
+.event-location-address {
+    font-size: 18px;
+    color: $secondary-text-color;
+}
+
+.event-directions > a {
+    padding: 0 40px 0 40px;
+    @media screen and (max-width: 767px) {
+        padding: 0 20px 0 20px;
+    }
+}
+
+.event-contacts {
+    text-align: center;
+}
+
+.contact-link {
+    color: $divider-color;
+    padding: 0 40px 0 40px;
+    @media screen and (max-width: 767px) {
+        padding: 0 20px 0 20px;
+    }
+}

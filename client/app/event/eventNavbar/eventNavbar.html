@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-class="small">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="/">
+            <span>{{ eventNabvar.event.title }}</span>
+        </a>
+    </div>
+
+    <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+         otro elemento que se pueda ocultar al minimizar la barra -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-repeat="feature in eventNabvar.event.features" ng-class="{active:eventNabvar.isActive(feature.url)}">
+                <a ng-href="/event/{{eventNabvar.event.id}}/{{feature.slug}}">{{feature.name}}</a>
+            </li>
+            <li ng-hide="eventNabvar.isLoggedIn()"><a href="/signup">Sign
+                up</a>
+            </li>
+            <li ng-hide="eventNabvar.isLoggedIn()"><a href="/login">Login</a>
+            </li>
+            <li ng-show="eventNabvar.isLoggedIn()"><p class="navbar-text">Hello
+                {{eventNabvar.getCurrentUser().name}}</p></li>
+            <li ng-show="eventNabvar.isLoggedIn()"><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,80 @@
+<event-navbar></event-navbar>
+
+<div class="container-fluid" style="padding:0">
+    <div class="event-hero"
+         ng-style="{'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + home.event.cover_image + ')'}">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                <h1 class="event-hero-title">{{home.event.title}}</h1>
+                <h3 class="event-hero-date">{{home.event_date}}</h3>
+                <h4 class="event-hero-place">{{home.event.place.name}} - {{home.event.place.vicinity}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1 event-description">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div ta-bind ng-model="home.event.description"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1 event-location">
+        <div class="panel panel-default">
+            <div class="panel-body" style="padding:0;">
+                <ng-map zoom="14"
+                        center="{{home.event.place.geometry.lat}},{{home.event.place.geometry.lng}}">
+                    <marker position="{{home.event.place.geometry.lat}},{{home.event.place.geometry.lng}}"
+                            title="{{home.event.name}}"></marker>
+                </ng-map>
+
+                <div style="text-align:center">
+                    <h3>{{home.event.place.name}}</h3>
+                    <span class="event-location-address">{{home.event.place.vicinity}}  {{home.event.place.address_components[2].short_name}}  {{home.event.place.address_components[3].short_name}}</span>
+                    <br>
+                    <span class="event-location-address">{{home.event.place.address_components[4].long_name}}</span>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-md-6 col-md-offset-3 event-directions">
+                            <a target="_blank"
+                               ng-href="https://maps.google.com/?saddr=Current+Location&daddr={{home.event.place.geometry.lat}},{{home.event.place.geometry.lng}}&dirflg=d"><i
+                                class="material-icons">directions_car</i></a>
+
+                            <a target="_blank"
+                               ng-href="https://maps.google.com/?saddr=Current+Location&daddr={{home.event.place.geometry.lat}},{{home.event.place.geometry.lng}}&dirflg=w"><i
+                                class="material-icons">directions_walk</i></a>
+
+                            <a target="_blank"
+                               ng-href="https://maps.google.com/?saddr=Current+Location&daddr={{home.event.place.geometry.lat}},{{home.event.place.geometry.lng}}&dirflg=r"><i
+                                class="material-icons">directions_bus</i></a>
+
+                            <a target="_blank"
+                               ng-href="https://maps.google.com/?saddr=Current+Location&daddr={{home.event.place.geometry.lat}},{{home.event.place.geometry.lng}}&dirflg=b"><i
+                                class="material-icons">directions_bike</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-body event-contacts">
+                <h3>Follow {{home.event.title}}!</h3>
+                <div class="row" style="padding-top:20px;">
+                    <div class="col-md-10 col-md-offset-1">
+                        <a class="contact-link" ng-repeat="contact in home.event.contacts" ng-href="{{contact.url}}">
+                            <i class="" ng-class="['fa', 'fa-3x', contact.icon]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

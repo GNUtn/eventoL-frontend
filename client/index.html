@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="bower_components/font-source-sans-pro/source-sans-pro.css" />
     <link rel="stylesheet" href="bower_components/angular-wizard/dist/angular-wizard.min.css" />
     <link rel="stylesheet" href="bower_components/MultipleDatePicker/dist/multiple-date-picker.css" />
+    <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -65,6 +66,15 @@
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/MultipleDatePicker/dist/multipleDatePicker.min.js"></script>
 <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+<script src="bower_components/rangy/rangy-core.js"></script>
+<script src="bower_components/rangy/rangy-classapplier.js"></script>
+<script src="bower_components/rangy/rangy-highlighter.js"></script>
+<script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
+<script src="bower_components/rangy/rangy-serializer.js"></script>
+<script src="bower_components/rangy/rangy-textrange.js"></script>
+<script src="bower_components/textAngular/dist/textAngular.js"></script>
+<script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+<script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -82,14 +92,18 @@
 <!-- injector:js -->
 <script src="components/auth/auth.module.js"></script>
 <script src="components/util/util.module.js"></script>
-<script src="components/auth/auth.service.js"></script>
+<script src="app/main/main.js"></script>
 <script src="app/app.constant.js"></script>
 <script src="app/event/create/create.controller.js"></script>
 <script src="app/event/event.js"></script>
+<script src="app/event/eventNavbar/eventNavbar.controller.js"></script>
+<script src="app/event/eventNavbar/eventNavbar.directive.js"></script>
+<script src="app/event/eventService/eventService.service.js"></script>
+<script src="app/event/home/home.controller.js"></script>
 <script src="app/main/main.controller.js"></script>
-<script src="app/main/main.js"></script>
-<script src="app/account/account.js"></script>
 <script src="app/account/login/login.controller.js"></script>
+<script src="app/account/account.js"></script>
+<script src="components/auth/auth.service.js"></script>
 <script src="components/auth/interceptor.service.js"></script>
 <script src="components/auth/router.decorator.js"></script>
 <script src="components/auth/user.service.js"></script>

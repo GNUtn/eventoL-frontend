@@ -20,7 +20,8 @@ angular.module('eventoLFrontendApp', [
         'mgo-angular-wizard',
         'angular-img-cropper',
         'multipleDatePicker',
-        'ngMap'
+        'ngMap',
+        'textAngular'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider
