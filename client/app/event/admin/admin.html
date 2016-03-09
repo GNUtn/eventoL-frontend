@@ -1,0 +1,37 @@
+<event-navbar></event-navbar>
+
+<div class="container-fluid admin-container">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li ng-repeat="feature in admin.event.features" ng-class="{active: admin.isActive(feature.slug)}">
+                    <a href="#" ng-click="admin.view=feature.slug">
+                        {{feature.name}}
+                    </a>
+                </li>
+                <li ng-class="{active: admin.isActive('members')}">
+                    <a href="#" ng-click="admin.view='members'">Members</a>
+                </li>
+                <li ng-class="{active: admin.isActive('event-description')}">
+                    <a href="#" ng-click="admin.view='event-description'">Event Description</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div ng-switch on="admin.view">
+                <div ng-switch-when="activity-proposals">
+                    <ng-include src="'app/event/admin/activityProposal/activity-proposal.html'"></ng-include>
+                </div>
+                <div ng-switch-when="activities-schedule">
+                    <ng-include src="'app/event/admin/activitySchedule/activity-schedule.html'"></ng-include>
+                </div>
+                <div ng-switch-when="installations"></div>
+                <div ng-switch-when="registrations">
+                    <ng-include src="'app/event/admin/registration/registration-admin.html'"></ng-include>
+                </div>
+                <div ng-switch-when="members"></div>
+                <div ng-switch-when="event-description"></div>
+            </div>
+        </div>
+    </div>
+</div>

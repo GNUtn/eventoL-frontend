@@ -10,6 +10,9 @@
 })();
 
 angular.module('eventoLFrontendApp', [
+        'ngAria',
+        'ngTouch',
+        'ngAnimate',
         'eventoLFrontendApp.auth',
         'eventoLFrontendApp.constants',
         'ngCookies',
@@ -21,7 +24,13 @@ angular.module('eventoLFrontendApp', [
         'angular-img-cropper',
         'multipleDatePicker',
         'ngMap',
-        'textAngular'
+        'textAngular',
+        'ui.grid',
+        'ui.grid.exporter',
+        'ui.grid.selection',
+        'ui.grid.resizeColumns',
+        'ui.grid.moveColumns',
+        'ui.grid.autoResize'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

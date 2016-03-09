@@ -11,7 +11,7 @@ $accent-color: #7C4DFF;
 $primary-text-color: #212121;
 $secondary-text-color: #727272;
 $divider-color: #B6B6B6;
-$body-background-color: #FAFAFA; /* YEAH! */
+$body-background-color: #edecec;
 
 /* Override of bootstrap colors */
 $brand-primary: $primary-color;
@@ -118,6 +118,7 @@ hr {
 // component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
+@import 'event/admin/admin.scss';
 @import 'event/create/create.scss';
 @import 'event/eventNavbar/eventNavbar.scss';
 @import 'event/home/home.scss';

@@ -1,0 +1,24 @@
+<div ng-controller="ActivityProposalCtrl as activity">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>Rooms</h3>
+            <ul>
+                <li ng-repeat="room in activity.rooms">
+                    {{room.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>Activity Proposals</h3>
+            <p><strong>Acá hay que hacer la vista de propuesta de charlas como en eventoL 1.0</strong></p>
+            <ul>
+                <li ng-repeat="proposal in activity.proposals">
+                    {{proposal.type.name}}: {{proposal.title}} - {{proposal.abstract}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

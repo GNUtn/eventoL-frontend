@@ -13,4 +13,9 @@ angular.module('eventoLFrontendApp')
                 controller  : 'HomeCtrl',
                 controllerAs: 'home'
             })
+            .when('/event/:eventId/admin', {
+                templateUrl : 'app/event/admin/admin.html',
+                controller  : 'AdminCtrl',
+                controllerAs: 'admin'
+            });
     });
