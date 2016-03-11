@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: ActivityProposalCtrl', function() {
+describe('Controller: EventDescriptionCtrl', function() {
 
     // load the controller's module
     beforeEach(module('eventoLFrontendApp'));
 
-    var ActivityProposalCtrl, scope;
+    var EventDescriptionCtrl, scope;
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function($controller, $rootScope) {
         scope                = $rootScope.$new();
-        ActivityProposalCtrl = $controller('ActivityProposalCtrl', {
+        EventDescriptionCtrl = $controller('EventDescriptionCtrl', {
             $scope: scope
         });
     }));

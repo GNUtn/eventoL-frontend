@@ -34,3 +34,26 @@
     color: #262626;
     background-color: #F4F4F4;
 }
+
+.btn-group-textangular {
+    @extend .btn-group;
+    /*padding: 0;*/
+    margin: 0;
+}
+
+.btn-textangular {
+    @extend .btn;
+    padding: 8px 10px;
+    margin: 0;
+}
+
+.btn-default {
+    @extend .btn-default;
+    padding: 0;
+    margin: 0;
+}
+
+.registration-grid {
+    font-size: 10px;
+    padding: 0;
+}

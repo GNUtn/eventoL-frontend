@@ -1,21 +1,21 @@
 'use strict';
 
-describe('Controller: ActivityProposalCtrl', function () {
+describe('Controller: ActivityScheduleCtrl', function() {
 
-  // load the controller's module
-  beforeEach(module('eventoLFrontendApp'));
+    // load the controller's module
+    beforeEach(module('eventoLFrontendApp'));
 
-  var ActivityProposalCtrl, scope;
+    var ActivityScheduleCtrl, scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    ActivityProposalCtrl = $controller('ActivityProposalCtrl', {
-      $scope: scope
+    // Initialize the controller and a mock scope
+    beforeEach(inject(function($controller, $rootScope) {
+        scope                = $rootScope.$new();
+        ActivityScheduleCtrl = $controller('ActivityScheduleCtrl', {
+            $scope: scope
+        });
+    }));
+
+    it('should ...', function() {
+        should(1).equal(1);
     });
-  }));
-
-  it('should ...', function () {
-    1.should.equal(1);
-  });
 });
