@@ -231,6 +231,7 @@ module.exports = function(grunt) {
                     '/es5-shim/',
                     /font-awesome\.css/,
                     /bootstrap\.css/,
+                    /bootstrap\/dist\/js\/bootstrap\.js/,
                     /bootstrap-sass-official/
                 ]
             },
@@ -540,7 +541,7 @@ module.exports = function(grunt) {
         babel: {
             options: {
                 sourceMap: true,
-                presets: ['es2015']
+                presets  : ['es2015']
             },
             client : {
                 files: [{
