@@ -1,0 +1,170 @@
+<div ng-controller="MembersCtrl as members">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>Organizers</h3>
+            <p>
+                Organizers have access to this administration interface and can change any event configuration. You
+                can add as organizer any user that has been registered to the event.
+            </p>
+            <div ng-repeat="organizer in members.organizers">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="{{organizer.profile_picture}}" alt="{{organizer.username}}">
+                        </div>
+                        <div class="row-content">
+                            <div class="row">
+                                <div class="col-sm-11 col-xs-11">
+                                    <h4 class="list-group-item-heading">{{organizer.username}}</h4>
+                                    <p class="list-group-item-text">{{organizer.first_name}} {{organizer.last_name}}</p>
+                                </div>
+                                <div class="col-sm-1 col-xs-1">
+                                    <a title="Remove from organization" href="" class="btn btn-danger btn-fab-mini pull-right" ng-click="members.removeOrganizer(organizer)">
+                                        <i class="material-icons">remove_circle</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="!$last" class="list-group-separator"></div>
+                </div>
+            </div>
+        </div>
+        <div class="eventol-floating-button">
+            <a type="submit" href="#" class="btn btn-primary btn-fab">
+                <i class="material-icons" data-toggle="modal" data-target="#add-organizer">add</i>
+            </a>
+        </div>
+    </div>
+    <div class="panel panel-default" style="margin-top: 3em;">
+        <div class="panel-body">
+            <h3>Installers</h3>
+
+            <p>
+                Installers have the same access as an attendant but they can log an installation. You
+                can add as installer any user that has been registered to the event.
+            </p>
+
+            <div ng-repeat="installer in members.installers">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="row-picture">
+                            <img class="circle" src="{{installer.profile_picture}}" alt="{{installer.username}}">
+                        </div>
+                        <div class="row-content">
+                            <div class="row">
+                                <div class="col-sm-11 col-xs-11">
+                                    <h4 class="list-group-item-heading">{{installer.username}}</h4>
+                                    <p class="list-group-item-text">{{installer.first_name}} {{installer.last_name}}</p>
+                                </div>
+                                <div class="col-sm-1 col-xs-1">
+                                    <a title="Remove from installers" href="" class="btn btn-danger btn-fab-mini pull-right" ng-click="members.removeInstaller(installer)">
+                                        <i class="material-icons">remove_circle</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="eventol-floating-button">
+            <a type="submit" href="#" class="btn btn-primary btn-fab">
+                <i class="material-icons" data-toggle="modal" data-target="#add-installer">add</i>
+            </a>
+        </div>
+    </div>
+    <div id="add-organizer" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Add Organizers</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="name">Search:</label>
+                                <div class="col-sm-5">
+                                    <input id="organizersFilter" name="organizersFilter" type="text" placeholder="Type to filter"
+                                    class="form-control input-md" ng-model="members.organizersFilter" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="form-horizontal">
+                        <div ng-repeat="attendant in members.attendants | filter: members.organizersFilter | startFrom: members.attendantsPagination.page * members.attendantsPagination.perPage | limitTo: members.attendantsPagination.perPage">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                ng-checked="members.isOrganizer(attendant)"
+                                                ng-click="members.toggleOrganizersSelection(attendant)">
+                                                {{attendant.username}} - {{attendant.first_name}} {{attendant.last_name}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="members.discardOrganizersChanges()">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="members.saveOrganizersChanges()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-installer" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Add Installer</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="name">Search:</label>
+                                <div class="col-sm-5">
+                                    <input id="installersFilter" name="installersFilter" type="text" placeholder="Type to filter"
+                                    class="form-control input-md" ng-model="members.installersFilter" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="form-horizontal">
+                        <div ng-repeat="attendant in members.attendants | filter: members.installersFilter | startFrom: members.attendantsPagination.page * members.attendantsPagination.perPage | limitTo: members.attendantsPagination.perPage">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                ng-checked="members.isInstaller(attendant)"
+                                                ng-click="members.toggleInstallersSelection(attendant)">
+                                                {{attendant.username}} - {{attendant.first_name}} {{attendant.last_name}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="members.discardInstallersChanges()">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="members.saveInstallersChanges()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

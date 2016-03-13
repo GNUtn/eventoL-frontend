@@ -7,7 +7,7 @@ angular.module('eventoLFrontendApp')
         this.eventId    = undefined;
 
         this.getAttendants = function getAttendants(eventId) {
-            if(eventId !== this.eventId || !this.attendants) {
+            if (eventId !== this.eventId || !this.attendants) {
                 this.eventId    = eventId;
                 this.attendants = $http.get('/api/attendants/' + eventId).then(function(response) {
                     return response.data;

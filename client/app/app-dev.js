@@ -1,19 +1,19 @@
 angular
     .module('eventoLFrontendAppDev', ['eventoLFrontendApp', 'ngMockE2E'])
-    .run(function($httpBackend) {
-        'use strict';
+        .run(function($httpBackend) {
+            'use strict';
 
-        $httpBackend.whenGET(/app\/.*/).passThrough();
-        $httpBackend.whenGET(/components\/.*/).passThrough();
+            $httpBackend.whenGET(/app\/.*/).passThrough();
+            $httpBackend.whenGET(/components\/.*/).passThrough();
 
-        /* backend API calls here */
-        $httpBackend.whenGET(/^\/api\/things/).respond(200, []);
-        $httpBackend.whenPOST(/^\/auth\/local/).respond(200, {token: 1234});
-        $httpBackend.whenGET(/^\/api\/users\/me/).respond(200, {
-            name: 'Test User',
-            role: 'user'
-        });
-        $httpBackend.whenGET(/^\/api\/events$/)
+            /* backend API calls here */
+            $httpBackend.whenGET(/^\/api\/things/).respond(200, []);
+            $httpBackend.whenPOST(/^\/auth\/local/).respond(200, {token: 1234});
+            $httpBackend.whenGET(/^\/api\/users\/me/).respond(200, {
+                name: 'Test User',
+                role: 'user'
+            });
+            $httpBackend.whenGET(/^\/api\/events$/)
             .respond([
                 {
                     name             : "FLISoL CABA 2016",
@@ -59,7 +59,7 @@ angular
                 }
             ]);
 
-        $httpBackend.whenGET(/^\/api\/events\/flisol-caba$/)
+            $httpBackend.whenGET(/^\/api\/events\/flisol-caba$/)
             .respond({
                 id               : 1,
                 title            : "FLISoL CABA",
@@ -125,7 +125,7 @@ angular
                 ]
             });
 
-        $httpBackend.whenGET(/^\/api\/rooms\/1$/)
+            $httpBackend.whenGET(/^\/api\/rooms\/1$/)
             .respond(
                 [
                     {name: "Sala C"},
@@ -136,7 +136,7 @@ angular
                 ]
             );
 
-        $httpBackend.whenGET(/^\/api\/activities\/proposals\/1$/)
+            $httpBackend.whenGET(/^\/api\/activities\/proposals\/1$/)
             .respond(
                 [
                     {
@@ -179,7 +179,7 @@ angular
                 ]
             );
 
-        $httpBackend.whenGET(/^\/api\/attendants\/flisol-caba$/)
+            $httpBackend.whenGET(/^\/api\/attendants\/flisol-caba$/)
             .respond(
                 [
                     {
@@ -195,419 +195,577 @@ angular
                         "need_installation": false,
                         "speaker"          : true,
                         "phone"            : "234-(678)745-1287",
-                        "address"          : "13291 Eagle Crest Avenue"
+                        "address"          : "13291 Eagle Crest Avenue",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
                     }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Christopher",
-                    "last_name"        : "Carpenter",
-                    "username"         : "ccarpenter1",
-                    "email"            : "ccarpenter1@sciencedirect.com",
-                    "last_login"       : "2015-03-23T16:03:53Z",
-                    "date_joined"      : "2015-06-15T15:25:24Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : true,
-                    "phone"            : "385-(195)994-1078",
-                    "address"          : "75 Sloan Plaza"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Russell",
-                    "last_name"        : "Little",
-                    "username"         : "rlittle2",
-                    "email"            : "rlittle2@google.co.uk",
-                    "last_login"       : "2015-10-02T22:03:32Z",
-                    "date_joined"      : "2015-06-21T14:27:02Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "33-(285)865-9969",
-                    "address"          : "07710 Veith Park"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Gary",
-                    "last_name"        : "Peterson",
-                    "username"         : "gpeterson3",
-                    "email"            : "gpeterson3@walmart.com",
-                    "last_login"       : "2015-07-24T10:18:27Z",
-                    "date_joined"      : "2015-08-10T05:00:13Z",
-                    "collaborator"     : true,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "48-(764)393-5911",
-                    "address"          : "7 Judy Alley"
-                }, {
-                    "gender"           : "Female",
-                    "first_name"       : "Lois",
-                    "last_name"        : "Wood",
-                    "username"         : "lwood4",
-                    "email"            : "lwood4@phpbb.com",
-                    "last_login"       : "2015-04-25T08:46:48Z",
-                    "date_joined"      : "2016-01-29T07:18:40Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : true,
-                    "phone"            : "62-(363)708-1305",
-                    "address"          : "11 Amoth Road"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Jeremy",
-                    "last_name"        : "Tucker",
-                    "username"         : "jtucker5",
-                    "email"            : "jtucker5@arstechnica.com",
-                    "last_login"       : "2015-03-10T17:21:47Z",
-                    "date_joined"      : "2015-09-24T04:16:10Z",
-                    "collaborator"     : false,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : true,
-                    "phone"            : "86-(909)274-0118",
-                    "address"          : "295 Transport Junction"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Sean",
-                    "last_name"        : "Carter",
-                    "username"         : "scarter6",
-                    "email"            : "scarter6@nydailynews.com",
-                    "last_login"       : "2015-06-17T22:01:38Z",
-                    "date_joined"      : "2016-02-24T10:59:16Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "380-(429)905-2645",
-                    "address"          : "779 Orin Center"
-                }, {
-                    "gender"           : "Female",
-                    "first_name"       : "Jennifer",
-                    "last_name"        : "Barnes",
-                    "username"         : "jbarnes7",
-                    "email"            : "jbarnes7@nymag.com",
-                    "last_login"       : "2015-06-22T03:04:01Z",
-                    "date_joined"      : "2015-11-09T08:46:31Z",
-                    "collaborator"     : false,
-                    "installer"        : true,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "86-(576)518-2317",
-                    "address"          : "74 Barnett Court"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Frank",
-                    "last_name"        : "Garcia",
-                    "username"         : "fgarcia8",
-                    "email"            : "fgarcia8@biglobe.ne.jp",
-                    "last_login"       : "2015-11-14T21:42:10Z",
-                    "date_joined"      : "2015-07-15T14:45:33Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "84-(460)197-4825",
-                    "address"          : "0 Sloan Plaza"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Kenneth",
-                    "last_name"        : "Carr",
-                    "username"         : "kcarr9",
-                    "email"            : "kcarr9@slideshare.net",
-                    "last_login"       : "2015-10-16T06:57:23Z",
-                    "date_joined"      : "2015-09-13T21:21:40Z",
-                    "collaborator"     : false,
-                    "installer"        : false,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "47-(716)312-7198",
-                    "address"          : "2 Sutherland Street"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Dennis",
-                    "last_name"        : "Cox",
-                    "username"         : "dcox0",
-                    "email"            : "dcox0@trellian.com",
-                    "last_login"       : "2016-02-16T14:33:39Z",
-                    "date_joined"      : "2015-03-29T07:12:12Z",
-                    "collaborator"     : true,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : true,
-                    "phone"            : "234-(678)745-1287",
-                    "address"          : "13291 Eagle Crest Avenue"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Christopher",
-                    "last_name"        : "Carpenter",
-                    "username"         : "ccarpenter1",
-                    "email"            : "ccarpenter1@sciencedirect.com",
-                    "last_login"       : "2015-03-23T16:03:53Z",
-                    "date_joined"      : "2015-06-15T15:25:24Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : true,
-                    "phone"            : "385-(195)994-1078",
-                    "address"          : "75 Sloan Plaza"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Russell",
-                    "last_name"        : "Little",
-                    "username"         : "rlittle2",
-                    "email"            : "rlittle2@google.co.uk",
-                    "last_login"       : "2015-10-02T22:03:32Z",
-                    "date_joined"      : "2015-06-21T14:27:02Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "33-(285)865-9969",
-                    "address"          : "07710 Veith Park"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Gary",
-                    "last_name"        : "Peterson",
-                    "username"         : "gpeterson3",
-                    "email"            : "gpeterson3@walmart.com",
-                    "last_login"       : "2015-07-24T10:18:27Z",
-                    "date_joined"      : "2015-08-10T05:00:13Z",
-                    "collaborator"     : true,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "48-(764)393-5911",
-                    "address"          : "7 Judy Alley"
-                }, {
-                    "gender"           : "Female",
-                    "first_name"       : "Lois",
-                    "last_name"        : "Wood",
-                    "username"         : "lwood4",
-                    "email"            : "lwood4@phpbb.com",
-                    "last_login"       : "2015-04-25T08:46:48Z",
-                    "date_joined"      : "2016-01-29T07:18:40Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : true,
-                    "phone"            : "62-(363)708-1305",
-                    "address"          : "11 Amoth Road"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Jeremy",
-                    "last_name"        : "Tucker",
-                    "username"         : "jtucker5",
-                    "email"            : "jtucker5@arstechnica.com",
-                    "last_login"       : "2015-03-10T17:21:47Z",
-                    "date_joined"      : "2015-09-24T04:16:10Z",
-                    "collaborator"     : false,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : true,
-                    "phone"            : "86-(909)274-0118",
-                    "address"          : "295 Transport Junction"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Sean",
-                    "last_name"        : "Carter",
-                    "username"         : "scarter6",
-                    "email"            : "scarter6@nydailynews.com",
-                    "last_login"       : "2015-06-17T22:01:38Z",
-                    "date_joined"      : "2016-02-24T10:59:16Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "380-(429)905-2645",
-                    "address"          : "779 Orin Center"
-                }, {
-                    "gender"           : "Female",
-                    "first_name"       : "Jennifer",
-                    "last_name"        : "Barnes",
-                    "username"         : "jbarnes7",
-                    "email"            : "jbarnes7@nymag.com",
-                    "last_login"       : "2015-06-22T03:04:01Z",
-                    "date_joined"      : "2015-11-09T08:46:31Z",
-                    "collaborator"     : false,
-                    "installer"        : true,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "86-(576)518-2317",
-                    "address"          : "74 Barnett Court"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Frank",
-                    "last_name"        : "Garcia",
-                    "username"         : "fgarcia8",
-                    "email"            : "fgarcia8@biglobe.ne.jp",
-                    "last_login"       : "2015-11-14T21:42:10Z",
-                    "date_joined"      : "2015-07-15T14:45:33Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "84-(460)197-4825",
-                    "address"          : "0 Sloan Plaza"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Kenneth",
-                    "last_name"        : "Carr",
-                    "username"         : "kcarr9",
-                    "email"            : "kcarr9@slideshare.net",
-                    "last_login"       : "2015-10-16T06:57:23Z",
-                    "date_joined"      : "2015-09-13T21:21:40Z",
-                    "collaborator"     : false,
-                    "installer"        : false,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "47-(716)312-7198",
-                    "address"          : "2 Sutherland Street"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Dennis",
-                    "last_name"        : "Cox",
-                    "username"         : "dcox0",
-                    "email"            : "dcox0@trellian.com",
-                    "last_login"       : "2016-02-16T14:33:39Z",
-                    "date_joined"      : "2015-03-29T07:12:12Z",
-                    "collaborator"     : true,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : true,
-                    "phone"            : "234-(678)745-1287",
-                    "address"          : "13291 Eagle Crest Avenue"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Christopher",
-                    "last_name"        : "Carpenter",
-                    "username"         : "ccarpenter1",
-                    "email"            : "ccarpenter1@sciencedirect.com",
-                    "last_login"       : "2015-03-23T16:03:53Z",
-                    "date_joined"      : "2015-06-15T15:25:24Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : true,
-                    "phone"            : "385-(195)994-1078",
-                    "address"          : "75 Sloan Plaza"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Russell",
-                    "last_name"        : "Little",
-                    "username"         : "rlittle2",
-                    "email"            : "rlittle2@google.co.uk",
-                    "last_login"       : "2015-10-02T22:03:32Z",
-                    "date_joined"      : "2015-06-21T14:27:02Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "33-(285)865-9969",
-                    "address"          : "07710 Veith Park"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Gary",
-                    "last_name"        : "Peterson",
-                    "username"         : "gpeterson3",
-                    "email"            : "gpeterson3@walmart.com",
-                    "last_login"       : "2015-07-24T10:18:27Z",
-                    "date_joined"      : "2015-08-10T05:00:13Z",
-                    "collaborator"     : true,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "48-(764)393-5911",
-                    "address"          : "7 Judy Alley"
-                }, {
-                    "gender"           : "Female",
-                    "first_name"       : "Lois",
-                    "last_name"        : "Wood",
-                    "username"         : "lwood4",
-                    "email"            : "lwood4@phpbb.com",
-                    "last_login"       : "2015-04-25T08:46:48Z",
-                    "date_joined"      : "2016-01-29T07:18:40Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : true,
-                    "phone"            : "62-(363)708-1305",
-                    "address"          : "11 Amoth Road"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Jeremy",
-                    "last_name"        : "Tucker",
-                    "username"         : "jtucker5",
-                    "email"            : "jtucker5@arstechnica.com",
-                    "last_login"       : "2015-03-10T17:21:47Z",
-                    "date_joined"      : "2015-09-24T04:16:10Z",
-                    "collaborator"     : false,
-                    "installer"        : false,
-                    "need_installation": false,
-                    "speaker"          : true,
-                    "phone"            : "86-(909)274-0118",
-                    "address"          : "295 Transport Junction"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Sean",
-                    "last_name"        : "Carter",
-                    "username"         : "scarter6",
-                    "email"            : "scarter6@nydailynews.com",
-                    "last_login"       : "2015-06-17T22:01:38Z",
-                    "date_joined"      : "2016-02-24T10:59:16Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "380-(429)905-2645",
-                    "address"          : "779 Orin Center"
-                }, {
-                    "gender"           : "Female",
-                    "first_name"       : "Jennifer",
-                    "last_name"        : "Barnes",
-                    "username"         : "jbarnes7",
-                    "email"            : "jbarnes7@nymag.com",
-                    "last_login"       : "2015-06-22T03:04:01Z",
-                    "date_joined"      : "2015-11-09T08:46:31Z",
-                    "collaborator"     : false,
-                    "installer"        : true,
-                    "need_installation": false,
-                    "speaker"          : false,
-                    "phone"            : "86-(576)518-2317",
-                    "address"          : "74 Barnett Court"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Frank",
-                    "last_name"        : "Garcia",
-                    "username"         : "fgarcia8",
-                    "email"            : "fgarcia8@biglobe.ne.jp",
-                    "last_login"       : "2015-11-14T21:42:10Z",
-                    "date_joined"      : "2015-07-15T14:45:33Z",
-                    "collaborator"     : true,
-                    "installer"        : true,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "84-(460)197-4825",
-                    "address"          : "0 Sloan Plaza"
-                }, {
-                    "gender"           : "Male",
-                    "first_name"       : "Kenneth",
-                    "last_name"        : "Carr",
-                    "username"         : "kcarr9",
-                    "email"            : "kcarr9@slideshare.net",
-                    "last_login"       : "2015-10-16T06:57:23Z",
-                    "date_joined"      : "2015-09-13T21:21:40Z",
-                    "collaborator"     : false,
-                    "installer"        : false,
-                    "need_installation": true,
-                    "speaker"          : false,
-                    "phone"            : "47-(716)312-7198",
-                    "address"          : "2 Sutherland Street"
-                }
+                        "gender"           : "Male",
+                        "first_name"       : "Christopher",
+                        "last_name"        : "Carpenter",
+                        "username"         : "ccarpenter1",
+                        "email"            : "ccarpenter1@sciencedirect.com",
+                        "last_login"       : "2015-03-23T16:03:53Z",
+                        "date_joined"      : "2015-06-15T15:25:24Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "385-(195)994-1078",
+                        "address"          : "75 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Russell",
+                        "last_name"        : "Little",
+                        "username"         : "rlittle2",
+                        "email"            : "rlittle2@google.co.uk",
+                        "last_login"       : "2015-10-02T22:03:32Z",
+                        "date_joined"      : "2015-06-21T14:27:02Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "33-(285)865-9969",
+                        "address"          : "07710 Veith Park",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Gary",
+                        "last_name"        : "Peterson",
+                        "username"         : "gpeterson3",
+                        "email"            : "gpeterson3@walmart.com",
+                        "last_login"       : "2015-07-24T10:18:27Z",
+                        "date_joined"      : "2015-08-10T05:00:13Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "48-(764)393-5911",
+                        "address"          : "7 Judy Alley",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Lois",
+                        "last_name"        : "Wood",
+                        "username"         : "lwood4",
+                        "email"            : "lwood4@phpbb.com",
+                        "last_login"       : "2015-04-25T08:46:48Z",
+                        "date_joined"      : "2016-01-29T07:18:40Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "62-(363)708-1305",
+                        "address"          : "11 Amoth Road",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Jeremy",
+                        "last_name"        : "Tucker",
+                        "username"         : "jtucker5",
+                        "email"            : "jtucker5@arstechnica.com",
+                        "last_login"       : "2015-03-10T17:21:47Z",
+                        "date_joined"      : "2015-09-24T04:16:10Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "86-(909)274-0118",
+                        "address"          : "295 Transport Junction",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Sean",
+                        "last_name"        : "Carter",
+                        "username"         : "scarter6",
+                        "email"            : "scarter6@nydailynews.com",
+                        "last_login"       : "2015-06-17T22:01:38Z",
+                        "date_joined"      : "2016-02-24T10:59:16Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "380-(429)905-2645",
+                        "address"          : "779 Orin Center",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Jennifer",
+                        "last_name"        : "Barnes",
+                        "username"         : "jbarnes7",
+                        "email"            : "jbarnes7@nymag.com",
+                        "last_login"       : "2015-06-22T03:04:01Z",
+                        "date_joined"      : "2015-11-09T08:46:31Z",
+                        "collaborator"     : false,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "86-(576)518-2317",
+                        "address"          : "74 Barnett Court",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Frank",
+                        "last_name"        : "Garcia",
+                        "username"         : "fgarcia8",
+                        "email"            : "fgarcia8@biglobe.ne.jp",
+                        "last_login"       : "2015-11-14T21:42:10Z",
+                        "date_joined"      : "2015-07-15T14:45:33Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "84-(460)197-4825",
+                        "address"          : "0 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Kenneth",
+                        "last_name"        : "Carr",
+                        "username"         : "kcarr9",
+                        "email"            : "kcarr9@slideshare.net",
+                        "last_login"       : "2015-10-16T06:57:23Z",
+                        "date_joined"      : "2015-09-13T21:21:40Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "47-(716)312-7198",
+                        "address"          : "2 Sutherland Street",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Dennis",
+                        "last_name"        : "Cox",
+                        "username"         : "dcox10",
+                        "email"            : "dcox10@trellian.com",
+                        "last_login"       : "2016-02-16T14:33:39Z",
+                        "date_joined"      : "2015-03-29T07:12:12Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "234-(678)745-1287",
+                        "address"          : "13291 Eagle Crest Avenue",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Christopher",
+                        "last_name"        : "Carpenter",
+                        "username"         : "ccarpenter11",
+                        "email"            : "ccarpenter11@sciencedirect.com",
+                        "last_login"       : "2015-03-23T16:03:53Z",
+                        "date_joined"      : "2015-06-15T15:25:24Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "385-(195)994-1078",
+                        "address"          : "75 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Russell",
+                        "last_name"        : "Little",
+                        "username"         : "rlittle12",
+                        "email"            : "rlittle12@google.co.uk",
+                        "last_login"       : "2015-10-02T22:03:32Z",
+                        "date_joined"      : "2015-06-21T14:27:02Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "33-(285)865-9969",
+                        "address"          : "07710 Veith Park",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Gary",
+                        "last_name"        : "Peterson",
+                        "username"         : "gpeterson13",
+                        "email"            : "gpeterson13@walmart.com",
+                        "last_login"       : "2015-07-24T10:18:27Z",
+                        "date_joined"      : "2015-08-10T05:00:13Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "48-(764)393-5911",
+                        "address"          : "7 Judy Alley",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Lois",
+                        "last_name"        : "Wood",
+                        "username"         : "lwood14",
+                        "email"            : "lwood14@phpbb.com",
+                        "last_login"       : "2015-04-25T08:46:48Z",
+                        "date_joined"      : "2016-01-29T07:18:40Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "62-(363)708-1305",
+                        "address"          : "11 Amoth Road",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Jeremy",
+                        "last_name"        : "Tucker",
+                        "username"         : "jtucker15",
+                        "email"            : "jtucker15@arstechnica.com",
+                        "last_login"       : "2015-03-10T17:21:47Z",
+                        "date_joined"      : "2015-09-24T04:16:10Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "86-(909)274-0118",
+                        "address"          : "295 Transport Junction",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Sean",
+                        "last_name"        : "Carter",
+                        "username"         : "scarter16",
+                        "email"            : "scarter16@nydailynews.com",
+                        "last_login"       : "2015-06-17T22:01:38Z",
+                        "date_joined"      : "2016-02-24T10:59:16Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "380-(429)905-2645",
+                        "address"          : "779 Orin Center",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Jennifer",
+                        "last_name"        : "Barnes",
+                        "username"         : "jbarnes17",
+                        "email"            : "jbarnes17@nymag.com",
+                        "last_login"       : "2015-06-22T03:04:01Z",
+                        "date_joined"      : "2015-11-09T08:46:31Z",
+                        "collaborator"     : false,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "86-(576)518-2317",
+                        "address"          : "74 Barnett Court",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Frank",
+                        "last_name"        : "Garcia",
+                        "username"         : "fgarcia18",
+                        "email"            : "fgarcia18@biglobe.ne.jp",
+                        "last_login"       : "2015-11-14T21:42:10Z",
+                        "date_joined"      : "2015-07-15T14:45:33Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "84-(460)197-4825",
+                        "address"          : "0 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Kenneth",
+                        "last_name"        : "Carr",
+                        "username"         : "kcarr19",
+                        "email"            : "kcarr19@slideshare.net",
+                        "last_login"       : "2015-10-16T06:57:23Z",
+                        "date_joined"      : "2015-09-13T21:21:40Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "47-(716)312-7198",
+                        "address"          : "2 Sutherland Street",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Dennis",
+                        "last_name"        : "Cox",
+                        "username"         : "dcox20",
+                        "email"            : "dcox20@trellian.com",
+                        "last_login"       : "2016-02-16T14:33:39Z",
+                        "date_joined"      : "2015-03-29T07:12:12Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "234-(678)745-1287",
+                        "address"          : "13291 Eagle Crest Avenue",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Christopher",
+                        "last_name"        : "Carpenter",
+                        "username"         : "ccarpenter21",
+                        "email"            : "ccarpenter21@sciencedirect.com",
+                        "last_login"       : "2015-03-23T16:03:53Z",
+                        "date_joined"      : "2015-06-15T15:25:24Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "385-(195)994-1078",
+                        "address"          : "75 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Russell",
+                        "last_name"        : "Little",
+                        "username"         : "rlittle22",
+                        "email"            : "rlittle22@google.co.uk",
+                        "last_login"       : "2015-10-02T22:03:32Z",
+                        "date_joined"      : "2015-06-21T14:27:02Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "33-(285)865-9969",
+                        "address"          : "07710 Veith Park",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Gary",
+                        "last_name"        : "Peterson",
+                        "username"         : "gpeterson23",
+                        "email"            : "gpeterson23@walmart.com",
+                        "last_login"       : "2015-07-24T10:18:27Z",
+                        "date_joined"      : "2015-08-10T05:00:13Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "48-(764)393-5911",
+                        "address"          : "7 Judy Alley",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Lois",
+                        "last_name"        : "Wood",
+                        "username"         : "lwood24",
+                        "email"            : "lwood24@phpbb.com",
+                        "last_login"       : "2015-04-25T08:46:48Z",
+                        "date_joined"      : "2016-01-29T07:18:40Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "62-(363)708-1305",
+                        "address"          : "11 Amoth Road",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Jeremy",
+                        "last_name"        : "Tucker",
+                        "username"         : "jtucker25",
+                        "email"            : "jtucker25@arstechnica.com",
+                        "last_login"       : "2015-03-10T17:21:47Z",
+                        "date_joined"      : "2015-09-24T04:16:10Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "86-(909)274-0118",
+                        "address"          : "295 Transport Junction",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Sean",
+                        "last_name"        : "Carter",
+                        "username"         : "scarter26",
+                        "email"            : "scarter26@nydailynews.com",
+                        "last_login"       : "2015-06-17T22:01:38Z",
+                        "date_joined"      : "2016-02-24T10:59:16Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "380-(429)905-2645",
+                        "address"          : "779 Orin Center",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Jennifer",
+                        "last_name"        : "Barnes",
+                        "username"         : "jbarnes27",
+                        "email"            : "jbarnes27@nymag.com",
+                        "last_login"       : "2015-06-22T03:04:01Z",
+                        "date_joined"      : "2015-11-09T08:46:31Z",
+                        "collaborator"     : false,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "86-(576)518-2317",
+                        "address"          : "74 Barnett Court",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Frank",
+                        "last_name"        : "Garcia",
+                        "username"         : "fgarcia28",
+                        "email"            : "fgarcia28@biglobe.ne.jp",
+                        "last_login"       : "2015-11-14T21:42:10Z",
+                        "date_joined"      : "2015-07-15T14:45:33Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "84-(460)197-4825",
+                        "address"          : "0 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Kenneth",
+                        "last_name"        : "Carr",
+                        "username"         : "kcarr29",
+                        "email"            : "kcarr29@slideshare.net",
+                        "last_login"       : "2015-10-16T06:57:23Z",
+                        "date_joined"      : "2015-09-13T21:21:40Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": true,
+                        "speaker"          : false,
+                        "phone"            : "47-(716)312-7198",
+                        "address"          : "2 Sutherland Street",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }
 
                 ]
             );
-    });
-if(angular.mock) {
+
+            $httpBackend.whenGET(/^\/api\/organizers\/flisol-caba$/)
+            .respond(
+                [
+                    {
+                        "gender"           : "Male",
+                        "first_name"       : "Dennis",
+                        "last_name"        : "Cox",
+                        "username"         : "dcox0",
+                        "email"            : "dcox0@trellian.com",
+                        "last_login"       : "2016-02-16T14:33:39Z",
+                        "date_joined"      : "2015-03-29T07:12:12Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "234-(678)745-1287",
+                        "address"          : "13291 Eagle Crest Avenue",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }
+                ]
+            );
+
+            $httpBackend.whenGET(/^\/api\/installers\/flisol-caba$/)
+            .respond(
+                [
+                    {
+                        "gender"           : "Male",
+                        "first_name"       : "Dennis",
+                        "last_name"        : "Cox",
+                        "username"         : "dcox0",
+                        "email"            : "dcox0@trellian.com",
+                        "last_login"       : "2016-02-16T14:33:39Z",
+                        "date_joined"      : "2015-03-29T07:12:12Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "234-(678)745-1287",
+                        "address"          : "13291 Eagle Crest Avenue",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Christopher",
+                        "last_name"        : "Carpenter",
+                        "username"         : "ccarpenter1",
+                        "email"            : "ccarpenter1@sciencedirect.com",
+                        "last_login"       : "2015-03-23T16:03:53Z",
+                        "date_joined"      : "2015-06-15T15:25:24Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "385-(195)994-1078",
+                        "address"          : "75 Sloan Plaza",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Russell",
+                        "last_name"        : "Little",
+                        "username"         : "rlittle2",
+                        "email"            : "rlittle2@google.co.uk",
+                        "last_login"       : "2015-10-02T22:03:32Z",
+                        "date_joined"      : "2015-06-21T14:27:02Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "33-(285)865-9969",
+                        "address"          : "07710 Veith Park",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Gary",
+                        "last_name"        : "Peterson",
+                        "username"         : "gpeterson3",
+                        "email"            : "gpeterson3@walmart.com",
+                        "last_login"       : "2015-07-24T10:18:27Z",
+                        "date_joined"      : "2015-08-10T05:00:13Z",
+                        "collaborator"     : true,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : false,
+                        "phone"            : "48-(764)393-5911",
+                        "address"          : "7 Judy Alley",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Female",
+                        "first_name"       : "Lois",
+                        "last_name"        : "Wood",
+                        "username"         : "lwood4",
+                        "email"            : "lwood4@phpbb.com",
+                        "last_login"       : "2015-04-25T08:46:48Z",
+                        "date_joined"      : "2016-01-29T07:18:40Z",
+                        "collaborator"     : true,
+                        "installer"        : true,
+                        "need_installation": true,
+                        "speaker"          : true,
+                        "phone"            : "62-(363)708-1305",
+                        "address"          : "11 Amoth Road",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }, {
+                        "gender"           : "Male",
+                        "first_name"       : "Jeremy",
+                        "last_name"        : "Tucker",
+                        "username"         : "jtucker5",
+                        "email"            : "jtucker5@arstechnica.com",
+                        "last_login"       : "2015-03-10T17:21:47Z",
+                        "date_joined"      : "2015-09-24T04:16:10Z",
+                        "collaborator"     : false,
+                        "installer"        : false,
+                        "need_installation": false,
+                        "speaker"          : true,
+                        "phone"            : "86-(909)274-0118",
+                        "address"          : "295 Transport Junction",
+                        "profile_picture"  : "http://wildstarforum.com/data/avatars/l/1/1900.jpg?1395602188"
+                    }
+                ]
+            );
+
+            $httpBackend.whenPOST(/^\/api\/organizers/).respond(200);
+
+            $httpBackend.whenDELETE(/^\/api\/organizers\/dcox0/).respond(200);
+
+            $httpBackend.whenDELETE(/^\/api\/installers\/dcox0/).respond(200);
+
+            $httpBackend.whenPOST(/^\/api\/installers/).respond(200);
+        });
+
+if (angular.mock) {
     angular.element(document).ready(function() {
         'use strict';
         angular.bootstrap(document, ['eventoLFrontendAppDev']);

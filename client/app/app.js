@@ -2,7 +2,7 @@
 
 (function() {
 
-    if(!angular.mock) {
+    if (!angular.mock) {
         angular.element(document).ready(function() {
             angular.bootstrap(document, ['eventoLFrontendApp']);
         });
@@ -30,7 +30,8 @@ angular.module('eventoLFrontendApp', [
         'ui.grid.selection',
         'ui.grid.resizeColumns',
         'ui.grid.moveColumns',
-        'ui.grid.autoResize'
+        'ui.grid.autoResize',
+        'simplePagination'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

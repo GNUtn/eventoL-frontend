@@ -4,14 +4,14 @@
     ],
     "esnext": true,
     "maximumLineLength": {
-        "value": 100,
+        "value": 220,
         "allowComments": true,
         "allowRegex": true
     },
     "disallowMixedSpacesAndTabs": true,
     "disallowMultipleLineStrings": true,
     "disallowNewlineBeforeBlockStatements": true,
-    "disallowSpaceAfterObjectKeys": true,
+    "disallowSpaceAfterObjectKeys": false,
     "disallowSpaceAfterPrefixUnaryOperators": [
         "++",
         "--",
@@ -101,6 +101,5 @@
     "requireSpacesInFunction": {
         "beforeOpeningCurlyBrace": true
     },
-    "validateLineBreaks": "LF",
     "validateParameterSeparator": ", "
 }
